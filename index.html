@@ -26,28 +26,25 @@ p {
 /* Top-level container */
 .container {
     width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px; /* overall page padding */
+    padding: 20px;
     box-sizing: border-box;
 }
 
-/* Grid for bird entries */
+/* Stack all entries by default */
 .birds-grid {
     display: flex;
-    flex-direction: column; /* stacked on small screens */
-    gap: 40px; /* space between bird-entry blocks */
+    flex-direction: column;
+    gap: 40px;
 }
 
 /* Each bird entry */
 .bird-entry {
     display: flex;
-    flex-direction: column; /* stacked on mobile */
+    flex-direction: column;
     background-color: #fefefe;
     border-radius: 8px;
     overflow: hidden;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-    padding: 10px 0; /* padding above and below each entry */
+    padding: 20px 0; /* vertical spacing between entries */
 }
 
 /* Images */
@@ -55,7 +52,7 @@ p {
     width: 100%;
     height: auto;
     display: block;
-    border-radius: 8px 8px 0 0; /* round top corners on mobile */
+    border-radius: 8px 8px 0 0;
 }
 
 /* Text */
@@ -68,19 +65,22 @@ p {
     .bird-entry {
         flex-direction: row;
         align-items: flex-start;
-        padding: 20px 0; /* more space above and below */
+        padding: 30px 0; /* spacing above and below */
     }
+
+    /* Force image and text to take exactly half of parent width */
     .bird-entry img {
-        width: 50%; /* exactly 50% of container */
-        max-width: none;
+        flex: 0 0 50%;  /* prevents shrinking/growing */
+        width: 50%;
         margin-right: 20px;
-        border-radius: 8px; /* keep corners rounded */
+        border-radius: 8px;
     }
+
     .bird-entry p {
-        width: 50%; /* remaining 50% for text */
-        flex: none;
-        min-width: 0; /* prevent overflow */
-        padding-left: 0; /* already have margin-right on image */
+        flex: 0 0 50%;  /* force exactly 50% width */
+        width: 50%;
+        min-width: 0;
+        padding-left: 0;
     }
 }
 </style>

@@ -1,119 +1,94 @@
 
 
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fugle Guide</title>
-    <style>
-        html, body {
-            margin: 0;
-            padding: 0;
-            font-family: Arial, sans-serif;
-            width: 100%;
-            overflow-x: hidden;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fugle Guide</title>
+<style>
+html, body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
 
-        img {
-            max-width: 100%;
-            height: auto;
-            display: block;
-        }
+h1, h2, h3 {
+    text-align: center;
+    margin: 10px 0;
+}
 
-        .container {
-            width: 100%;
-            max-width: 480px; /* Mobile default */
-            box-sizing: border-box;
-            padding: 0;
-            margin: 0 auto;
-        }
+p {
+    margin: 0;
+    padding: 5px 0;
+    line-height: 1.5;
+}
 
-        h1, h2, h3 {
-            text-align: center;
-        }
+/* Top-level container expands fully on all screens */
+.container {
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+}
 
-        p {
-            padding: 0 10px;
-            line-height: 1.5;
-            margin: 0;
-        }
+/* Grid for all bird entries */
+.birds-grid {
+    display: grid;
+    gap: 20px;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+}
 
-        /* Mobile */
-        @media (max-width: 600px) {
-            h1 { font-size: 1.5em; }
-            p { padding: 0 5px; font-size: 0.9em; }
-        }
+/* Each bird entry: image + text */
+.bird-entry {
+    display: flex;
+    flex-direction: column; /* stack on mobile */
+    background-color: #fefefe;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
 
-        /* Tablet */
-        @media (min-width: 601px) and (max-width: 1199px) {
-            .container { max-width: 720px; }
-            h1 { font-size: 2em; }
-            p { font-size: 1em; padding: 0 15px; }
-        }
+.bird-entry img {
+    width: 100%;
+    height: auto;
+}
 
-        /* Laptop/Desktop */
-        @media (min-width: 1200px) {
-            .container { max-width: 1200px; padding: 0 20px; }
-            h1 { font-size: 2.5em; }
-            p { font-size: 1.1em; padding: 0 20px; }
+.bird-entry p {
+    padding: 10px;
+}
 
-            /* Grid for bird entries */
-            .birds-grid {
-                display: grid;
-                grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
-                gap: 40px;
-            }
-
-            /* Each bird entry: 2-column grid */
-            .bird-entry {
-                display: grid;
-                grid-template-columns: 250px 1fr; /* image | text */
-                gap: 20px;
-                padding: 10px;
-                border-radius: 8px;
-                transition: transform 0.3s, box-shadow 0.3s;
-                align-items: start;
-            }
-
-            .bird-entry img {
-                width: 100%;
-                height: auto;
-                border-radius: 8px;
-            }
-
-            .bird-entry p {
-                margin: 0;
-                text-align: left;
-            }
-
-            .bird-entry:hover {
-                transform: translateY(-5px);
-                box-shadow: 0 10px 20px rgba(0,0,0,0.15);
-                background-color: #f9f9f9;
-            }
-        }
-    </style>
+/* Desktop: side-by-side image + text */
+@media (min-width: 1000px) {
+    .bird-entry {
+        flex-direction: row; /* side-by-side */
+    }
+    .bird-entry img {
+        width: 250px; /* fixed image width */
+        flex-shrink: 0;
+    }
+    .bird-entry p {
+        flex: 1; /* text takes remaining space */
+        min-width: 0; /* prevents overflow */
+    }
+}
+</style>
 </head>
 <body>
-    <div class="container">
-        <h1>Fugle Guide</h1>
-        <p>Welcome to the bird guide! Below are some examples:</p>
+<div class="container">
+    <h1>Fugle Guide</h1>
+    <p>Welcome to the bird guide! Below are some examples:</p>
 
-        <div class="birds-grid">
-            <div class="bird-entry">
-                <img src="Images/bird1.jpg" alt="Bird 1">
-                <p>Her ses en fiskehejre - en almindelig fugl i området.</p>
-            </div>
-
-            <div class="bird-entry">
-                <img src="Images/bird2.jpg" alt="Bird 2">
-                <p>Her ses en fasan - også meget almindelig i området.</p>
-            </div>
-
-            <!-- Add more bird entries here -->
+    <div class="birds-grid">
+        <div class="bird-entry">
+            <img src="Images/bird1.jpg" alt="Bird 1">
+            <p>Her ses en fiskehejre - en almindelig fugl i området.</p>
         </div>
+        <div class="bird-entry">
+            <img src="Images/bird2.jpg" alt="Bird 2">
+            <p>Her ses en fasan - også meget almindelig i området.</p>
+        </div>
+        <!-- Add more bird entries here -->
     </div>
+</div>
 </body>
 </html>

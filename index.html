@@ -44,7 +44,8 @@ p {
     background-color: #f9f9f9; /* light gray tone */
     border-radius: 8px;
     overflow: hidden;
-    padding: 20px 0; /* vertical spacing above and below */
+    padding: 20px; /* full padding around content */
+    box-sizing: border-box;
 }
 
 /* Alternating rows for slightly different tone */
@@ -57,12 +58,12 @@ p {
     width: 100%;
     height: auto;
     display: block;
-    border-radius: 8px 8px 0 0;
+    border-radius: 0; /* remove radius so background is visible */
 }
 
 /* Text */
 .bird-entry p {
-    padding: 10px;
+    padding: 10px 0 0 0;
 }
 
 /* Desktop / laptop layout */
@@ -77,14 +78,14 @@ p {
     .bird-entry {
         flex-direction: row;
         align-items: flex-start;
-        padding: 20px; /* spacing inside entry */
+        padding: 20px; /* padding inside entry */
     }
 
     .bird-entry img {
         flex: 0 0 66.66%;
         width: 66.66%;
         margin-right: 20px;
-        border-radius: 8px;
+        border-radius: 8px 0 0 8px; /* rounded on left side */
     }
 
     .bird-entry p {

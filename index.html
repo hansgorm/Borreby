@@ -13,18 +13,17 @@ html, body {
     font-family: Arial, sans-serif;
 }
 
-h1, h2, h3 {
+h1 {
     text-align: center;
     margin: 10px 0;
 }
 
 p {
     margin: 0;
-    padding: 5px 0;
     line-height: 1.5;
 }
 
-/* Top-level container expands fully on all screens */
+/* Top-level container */
 .container {
     width: 100%;
     padding: 10px;
@@ -35,24 +34,27 @@ p {
 .birds-grid {
     display: grid;
     gap: 20px;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 }
 
-/* Each bird entry: image + text */
+/* Each bird entry */
 .bird-entry {
     display: flex;
-    flex-direction: column; /* stack on mobile */
+    flex-direction: column;
     background-color: #fefefe;
     border-radius: 8px;
     overflow: hidden;
     box-shadow: 0 2px 6px rgba(0,0,0,0.1);
 }
 
+/* Images */
 .bird-entry img {
     width: 100%;
     height: auto;
+    display: block;
 }
 
+/* Text */
 .bird-entry p {
     padding: 10px;
 }
@@ -60,15 +62,17 @@ p {
 /* Desktop: side-by-side image + text */
 @media (min-width: 1000px) {
     .bird-entry {
-        flex-direction: row; /* side-by-side */
+        flex-direction: row;
+        align-items: flex-start;
     }
     .bird-entry img {
-        width: 250px; /* fixed image width */
-        flex-shrink: 0;
+        width: 40%; /* image takes 40% of entry width */
+        max-width: 400px; /* optional max size */
+        margin-right: 20px;
     }
     .bird-entry p {
-        flex: 1; /* text takes remaining space */
-        min-width: 0; /* prevents overflow */
+        flex: 1;
+        min-width: 0;
     }
 }
 </style>

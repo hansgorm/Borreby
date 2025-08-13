@@ -1,3 +1,6 @@
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,48 +8,92 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fugle Guide</title>
     <style>
-        /* Remove default margins and padding */
         html, body {
             margin: 0;
             padding: 0;
             font-family: Arial, sans-serif;
             width: 100%;
-            overflow-x: hidden; /* Prevent horizontal scroll */
+            overflow-x: hidden;
         }
 
-        /* Make images scale and display correctly */
         img {
             max-width: 100%;
             height: auto;
             display: block;
         }
 
-        /* Container for content, full-width */
         .container {
             width: 100%;
+            max-width: 480px; /* Mobile default */
             box-sizing: border-box;
             padding: 0;
+            margin: 0 auto;
         }
 
-        /* Headings centered */
         h1, h2, h3 {
             text-align: center;
         }
 
-        /* Paragraph style with slight padding */
         p {
             padding: 0 10px;
             line-height: 1.5;
         }
 
-        /* Optional: responsive text size on small screens */
+        /* Mobile */
         @media (max-width: 600px) {
-            h1 {
-                font-size: 1.5em;
+            h1 { font-size: 1.5em; }
+            p { padding: 0 5px; font-size: 0.9em; }
+        }
+
+        /* Tablet */
+        @media (min-width: 601px) and (max-width: 1199px) {
+            .container { max-width: 720px; }
+            h1 { font-size: 2em; }
+            p { font-size: 1em; padding: 0 15px; }
+        }
+
+        /* Laptop/Desktop */
+        @media (min-width: 1200px) {
+            .container { max-width: 1200px; padding: 0 20px; }
+            h1 { font-size: 2.5em; }
+            p { font-size: 1.1em; padding: 0 20px; }
+
+            /* Multi-column grid for birds */
+            .birds-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+                gap: 40px;
             }
-            p {
-                padding: 0 5px;
-                font-size: 0.9em;
+
+            /* Bird entry as side-by-side on large screens */
+            .bird-entry {
+                display: flex;
+                flex-direction: row;
+                align-items: flex-start;
+                gap: 20px;
+                transition: transform 0.3s, box-shadow 0.3s;
+                padding: 10px;
+                border-radius: 8px;
+            }
+
+            .bird-entry img {
+                flex: 1 1 250px;
+                max-width: 100%;
+                height: auto;
+                border-radius: 8px;
+            }
+
+            .bird-entry p {
+                flex: 2 1 350px;
+                padding: 0;
+                text-align: left;
+            }
+
+            /* Hover effect */
+            .bird-entry:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+                background-color: #f9f9f9;
             }
         }
     </style>
@@ -56,14 +103,19 @@
         <h1>Fugle Guide</h1>
         <p>Welcome to the bird guide! Below are some examples:</p>
 
-        <p>Her ses en fiskehejre - en almindelig fugl i området.</p>
-        <!-- Example images -->
-        <img src="Images/bird1.jpg" alt="Bird 1">
+        <div class="birds-grid">
+            <div class="bird-entry">
+                <img src="Images/bird1.jpg" alt="Bird 1">
+                <p>Her ses en fiskehejre - en almindelig fugl i området.</p>
+            </div>
 
-        <p>Her ses en fasan - også meget almindelig i området.</p>
-        <img src="Images/bird2.jpg" alt="Bird 2">
+            <div class="bird-entry">
+                <img src="Images/bird2.jpg" alt="Bird 2">
+                <p>Her ses en fasan - også meget almindelig i området.</p>
+            </div>
 
-        <p>Add your descriptions and more images here.</p>
+            <!-- Add more bird entries here -->
+        </div>
     </div>
 </body>
 </html>

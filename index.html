@@ -65,28 +65,30 @@
                 gap: 40px;
             }
 
-            /* Bird entry as side-by-side on large screens */
+            /* Bird entry side-by-side */
             .bird-entry {
                 display: flex;
                 flex-direction: row;
                 align-items: flex-start;
                 gap: 20px;
-                transition: transform 0.3s, box-shadow 0.3s;
                 padding: 10px;
                 border-radius: 8px;
+                transition: transform 0.3s, box-shadow 0.3s;
+                min-width: 0; /* allow text to shrink inside flex container */
             }
 
             .bird-entry img {
-                flex: 1 1 250px;
+                flex: 0 0 250px; /* fixed width for images */
                 max-width: 100%;
                 height: auto;
                 border-radius: 8px;
             }
 
             .bird-entry p {
-                flex: 2 1 350px;
-                padding: 0;
+                flex: 1 1 auto; /* text fills remaining space */
+                min-width: 0; /* crucial to prevent overflow/overlap */
                 text-align: left;
+                padding: 0;
             }
 
             /* Hover effect */

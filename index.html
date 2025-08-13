@@ -37,6 +37,7 @@
         p {
             padding: 0 10px;
             line-height: 1.5;
+            margin: 0;
         }
 
         /* Mobile */
@@ -58,43 +59,38 @@
             h1 { font-size: 2.5em; }
             p { font-size: 1.1em; padding: 0 20px; }
 
-            /* Multi-column grid for birds */
+            /* Grid for bird entries */
             .birds-grid {
                 display: grid;
                 grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
                 gap: 40px;
             }
 
-            /* Bird entry side-by-side */
+            /* Each bird entry: 2-column grid */
             .bird-entry {
-                display: flex;
-                flex-direction: row;
-                align-items: flex-start;
+                display: grid;
+                grid-template-columns: 250px 1fr; /* image | text */
                 gap: 20px;
                 padding: 10px;
                 border-radius: 8px;
                 transition: transform 0.3s, box-shadow 0.3s;
-                min-width: 0; /* allow text to shrink inside flex container */
+                align-items: start;
             }
 
             .bird-entry img {
-                flex: 0 0 250px; /* fixed width for images */
-                max-width: 100%;
+                width: 100%;
                 height: auto;
                 border-radius: 8px;
             }
 
             .bird-entry p {
-                flex: 1 1 auto; /* text fills remaining space */
-                min-width: 0; /* crucial to prevent overflow/overlap */
+                margin: 0;
                 text-align: left;
-                padding: 0;
             }
 
-            /* Hover effect */
             .bird-entry:hover {
                 transform: translateY(-5px);
-                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+                box-shadow: 0 10px 20px rgba(0,0,0,0.15);
                 background-color: #f9f9f9;
             }
         }

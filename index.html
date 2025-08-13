@@ -37,14 +37,19 @@ p {
     gap: 40px;
 }
 
-/* Each bird entry */
+/* Each bird entry with subtle background color */
 .bird-entry {
     display: flex;
     flex-direction: column; /* stacked on mobile */
-    background-color: #fefefe;
+    background-color: #f9f9f9; /* light gray tone */
     border-radius: 8px;
     overflow: hidden;
     padding: 20px 0; /* vertical spacing above and below */
+}
+
+/* Alternating rows for slightly different tone */
+.bird-entry:nth-child(even) {
+    background-color: #f0f0f0; /* slightly lighter gray */
 }
 
 /* Images */
@@ -60,27 +65,30 @@ p {
     padding: 10px;
 }
 
-/* Desktop / laptop: two columns grid */
+/* Desktop / laptop layout */
 @media (min-width: 900px) {
+    /* Two columns per row */
     .birds-grid {
-        grid-template-columns: 1fr 1fr; /* two entries per row */
+        grid-template-columns: 1fr 1fr; 
+        gap: 30px;
     }
 
+    /* Each bird entry: image 2/3, text 1/3 */
     .bird-entry {
-        flex-direction: row; /* image + text side by side */
+        flex-direction: row;
         align-items: flex-start;
-        padding: 30px; /* padding around entry */
+        padding: 20px; /* spacing inside entry */
     }
 
     .bird-entry img {
-        flex: 0 0 66.66%; /* 2/3 width of entry */
+        flex: 0 0 66.66%;
         width: 66.66%;
         margin-right: 20px;
         border-radius: 8px;
     }
 
     .bird-entry p {
-        flex: 0 0 33.33%; /* 1/3 width */
+        flex: 0 0 33.33%;
         width: 33.33%;
         min-width: 0;
         padding-left: 0;

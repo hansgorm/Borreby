@@ -15,7 +15,7 @@ html, body {
 
 h1 {
     text-align: center;
-    margin: 10px 0;
+    margin: 20px 0;
 }
 
 p {
@@ -26,25 +26,28 @@ p {
 /* Top-level container */
 .container {
     width: 100%;
-    padding: 10px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px; /* overall page padding */
     box-sizing: border-box;
 }
 
-/* Grid for all bird entries */
+/* Grid for bird entries */
 .birds-grid {
-    display: grid;
-    gap: 20px;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    display: flex;
+    flex-direction: column; /* stacked on small screens */
+    gap: 40px; /* space between bird-entry blocks */
 }
 
 /* Each bird entry */
 .bird-entry {
     display: flex;
-    flex-direction: column;
+    flex-direction: column; /* stacked on mobile */
     background-color: #fefefe;
     border-radius: 8px;
     overflow: hidden;
     box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    padding: 10px 0; /* padding above and below each entry */
 }
 
 /* Images */
@@ -52,6 +55,7 @@ p {
     width: 100%;
     height: auto;
     display: block;
+    border-radius: 8px 8px 0 0; /* round top corners on mobile */
 }
 
 /* Text */
@@ -59,20 +63,24 @@ p {
     padding: 10px;
 }
 
-/* Desktop: side-by-side image + text */
-@media (min-width: 1000px) {
+/* Desktop / laptop: side-by-side 50/50 */
+@media (min-width: 900px) {
     .bird-entry {
         flex-direction: row;
         align-items: flex-start;
+        padding: 20px 0; /* more space above and below */
     }
     .bird-entry img {
-        width: 40%; /* image takes 40% of entry width */
-        max-width: 400px; /* optional max size */
+        width: 50%; /* exactly 50% of container */
+        max-width: none;
         margin-right: 20px;
+        border-radius: 8px; /* keep corners rounded */
     }
     .bird-entry p {
-        flex: 1;
-        min-width: 0;
+        width: 50%; /* remaining 50% for text */
+        flex: none;
+        min-width: 0; /* prevent overflow */
+        padding-left: 0; /* already have margin-right on image */
     }
 }
 </style>
